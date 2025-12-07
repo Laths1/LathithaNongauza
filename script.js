@@ -86,8 +86,27 @@ function prevPage(containerId) {
 }
 
 function zoomPDF(containerId, delta) {
-    currentScales[containerId] = Math.max(0.9, Math.min(3, currentScales[containerId] + delta));
-    renderPage(containerId);
+    if (!currentScales[containerId]) {
+        currentScales[containerId] = 1.0;
+    }
+    
+    // Update scale
+    currentScales[containerId] = Math.max(0.3, currentScales[containerId] + delta);
+    
+    // On mobile: Always re-render for sharp quality
+    if (window.innerWidth <= 576) {
+        // Force re-render for sharp zoom
+        renderPage(containerId);
+    } else {
+        // On desktop: Use CSS transform (faster but blurry)
+        const canvas = document.querySelector(`#${containerId} canvas`);
+        if (canvas) {
+            canvas.style.transform = `scale(${currentScales[containerId]})`;
+        }
+    }
+    
+    // Update zoom display
+    updateZoomDisplay(containerId, currentScales[containerId]);
 }
 
 function toggleFullscreen(containerId) {

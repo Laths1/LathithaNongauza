@@ -1107,41 +1107,41 @@ gallery
         overflow-x: hidden !important;
     }
     
-    /* PDF display area - SCROLLABLE */
-     .pdf-canvas canvas {
-        transform-origin: center center !important;
-        transition: transform 0.2s ease !important;
-        will-change: transform !important;
-        max-width: none !important; /* Remove width restriction for zoom */
-    }
-    
-    /* FIX 2: Ensure container allows overflow when zoomed */
+    /* PDF display area */
     .pdf-canvas {
+        width: 100vw !important;
+        /* height: 45vh !important; */
+        min-height: 300px !important;
+        padding: 10px !important;
+        margin: 0 !important;
         overflow: auto !important;
         -webkit-overflow-scrolling: touch !important;
-        transform-origin: center center !important;
+        background: var(--primary-color-6) !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
     }
     
-    /* FIX 3: When zoomed in, allow panning */
-    .pdf-canvas canvas.zoomed {
-        cursor: move !important;
-        touch-action: none !important; /* Allow panning on touch devices */
+    /* Canvas styling - ALLOW ZOOM */
+    .pdf-canvas canvas {
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important; /* REMOVE max-width restriction for zoom */
+        max-height: none !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
     
-    /* FIX 4: Make sure zoom controls are always clickable */
+    /* Zoom controls */
     .zoom-in, .zoom-out {
-        z-index: 10 !important;
-        position: relative !important;
-        touch-action: manipulation !important; /* Prevent double-tap zoom */
+        touch-action: manipulation !important;
     }
     
-    /* FIX 5: Add visual feedback for zoom level */
     .zoom-level {
         font-weight: bold !important;
         color: var(--primary-color-2) !important;
     }
     
-    /* FIX 6: Disable text selection on buttons */
     .pdf-toolbar button {
         user-select: none !important;
         -webkit-user-select: none !important;
