@@ -93,20 +93,62 @@ function zoomPDF(containerId, delta) {
     // Update scale
     currentScales[containerId] = Math.max(0.3, currentScales[containerId] + delta);
     
-    // On mobile: Always re-render for sharp quality
-    if (window.innerWidth <= 576) {
-        // Force re-render for sharp zoom
-        renderPage(containerId);
-    } else {
-        // On desktop: Use CSS transform (faster but blurry)
-        const canvas = document.querySelector(`#${containerId} canvas`);
-        if (canvas) {
-            canvas.style.transform = `scale(${currentScales[containerId]})`;
-        }
-    }
+    // **CHANGE THIS: Always re-render with PDF.js for sharp zoom**
+    renderPage(containerId);
     
     // Update zoom display
     updateZoomDisplay(containerId, currentScales[containerId]);
+}
+
+// Make sure renderPage uses the current scale
+async function renderPage(containerId) {
+    const pdf = pdfDocs[containerId];
+    if (!pdf) return;
+    
+    const pageNum = currentPages[containerId] || 1;
+    const scale = currentScales[containerId] || 1.0; // Use the zoom scale here
+    
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    
+    const page = await pdf.getPage(pageNum);
+    const viewport = page.getViewport({ scale: scale }); // This is where zoom happens
+    
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    
+    // Set higher resolution for mobile/retina displays
+    const pixelRatio = window.devicePixelRatio || 1;
+    canvas.height = viewport.height * pixelRatio;
+    canvas.width = viewport.width * pixelRatio;
+    
+    // Scale the context
+    context.scale(pixelRatio, pixelRatio);
+    
+    // Set display size
+    canvas.style.height = `${viewport.height}px`;
+    canvas.style.width = `${viewport.width}px`;
+    
+    container.appendChild(canvas);
+    
+    const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+    };
+    
+    await page.render(renderContext).promise;
+    
+    // Update page info
+    document.getElementById(`current-page-${containerId.split('-')[2]}`).textContent = pageNum;
+}
+
+// Add this function if you don't have it
+function updateZoomDisplay(containerId, scale) {
+    const pageNum = containerId.split('-')[2];
+    const zoomDisplay = document.getElementById(`zoom-level-${pageNum}`);
+    if (zoomDisplay) {
+        zoomDisplay.textContent = `${Math.round(scale * 100)}%`;
+    }
 }
 
 function toggleFullscreen(containerId) {

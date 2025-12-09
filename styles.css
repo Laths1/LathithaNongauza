@@ -928,6 +928,9 @@ gallery
     max-width: 100%;
     height: auto;
     margin: 0 auto;
+    transform: none !important; /* Remove CSS transforms */
+    image-rendering: crisp-edges !important; /* For sharp rendering */
+    -webkit-font-smoothing: antialiased !important;
 }
 
 .pdf-toolbar {
@@ -1124,12 +1127,8 @@ gallery
     
     /* Canvas styling - ALLOW ZOOM */
     .pdf-canvas canvas {
-        width: auto !important;
-        height: auto !important;
-        max-width: none !important; /* REMOVE max-width restriction for zoom */
-        max-height: none !important;
-        display: block !important;
-        margin: 0 auto !important;
+        max-width: none !important; /* Allow full size for zoom */
+        image-rendering: optimizeQuality !important;
     }
     
     /* Zoom controls */
