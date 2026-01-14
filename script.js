@@ -171,5 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadPDF('pdf-canvas-5', './WCST_with_transformers.pdf');
     loadPDF('pdf-canvas-6', './Effects_of_pre&nonepretrained_tokens.pdf');
     loadPDF('pdf-canvas-7', './Dimensionality reduction analysis of NBA player statistics.pdf');
+    loadPDF('pdf-canvas-8', './AI_in_monopoly.pdf');
     // Add more PDFs as needed
 });
+
