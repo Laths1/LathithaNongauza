@@ -167,6 +167,41 @@
                 <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
                 
                 <ul data-slides>
+                    <!-- slide 8 -->
+                    <li class="slide">
+                        <div class="pdf-viewer-container">
+                            <div id="pdf-canvas-8" class="pdf-canvas">
+                                <!-- PDF.js will render here -->
+                            </div>
+                            <div class="pdf-toolbar">
+                                <button class="zoom-in" onclick="zoomPDF('pdf-canvas-8', 0.2)">
+                                    <span class="material-symbols-outlined">add_2</span>
+                                </button>
+                                <button class="zoom-out" onclick="zoomPDF('pdf-canvas-8', -0.2)">
+                                    <span class="material-symbols-outlined">remove</span>
+                                </button>
+                                <div class="page-nav">
+                                    <button class="page-prev" onclick="prevPage('pdf-canvas-8')">‹</button>
+                                    <span class="page-info">Page <span id="current-page-8">1</span>/<span id="total-pages-8">1</span></span>
+                                    <button class="page-next" onclick="nextPage('pdf-canvas-8')">›</button>
+                                </div>
+                                <button class="fullscreen-btn" onclick="toggleFullscreen('pdf-canvas-8')">
+                                    <span class="material-symbols-outlined">open_in_full</span>
+                                </button>
+                                <a href="./AI_in_monopoly.pdf" download class="download-btn">
+                                    <span class="material-symbols-outlined">download</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>AI in Monopoly</h3>
+                            <p>(Reinforcement Learning)</p>
+                            <a href="https://github.com/Laths1/Monopoly_AI" class="github-link">
+                                <div class="btn">View on GitHub</div> 
+                            </a>
+                        </div>
+                    </li>
+                    
                     <!-- Slide 1 (active) -->
                     <li class="slide" data-active>
                         <div class="pdf-viewer-container">
@@ -411,41 +446,6 @@
                             </a> -->
                         </div>
                     </li>
-                    
-                    <!-- slide 8 -->
-                    <li class="slide">
-                        <div class="pdf-viewer-container">
-                            <div id="pdf-canvas-8" class="pdf-canvas">
-                                <!-- PDF.js will render here -->
-                            </div>
-                            <div class="pdf-toolbar">
-                                <button class="zoom-in" onclick="zoomPDF('pdf-canvas-8', 0.2)">
-                                    <span class="material-symbols-outlined">add_2</span>
-                                </button>
-                                <button class="zoom-out" onclick="zoomPDF('pdf-canvas-8', -0.2)">
-                                    <span class="material-symbols-outlined">remove</span>
-                                </button>
-                                <div class="page-nav">
-                                    <button class="page-prev" onclick="prevPage('pdf-canvas-8')">‹</button>
-                                    <span class="page-info">Page <span id="current-page-8">1</span>/<span id="total-pages-8">1</span></span>
-                                    <button class="page-next" onclick="nextPage('pdf-canvas-8')">›</button>
-                                </div>
-                                <button class="fullscreen-btn" onclick="toggleFullscreen('pdf-canvas-8')">
-                                    <span class="material-symbols-outlined">open_in_full</span>
-                                </button>
-                                <a href="./AI_in_monopoly.pdf" download class="download-btn">
-                                    <span class="material-symbols-outlined">download</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>AI in Monopoly</h3>
-                            <p>(Reinforcement Learning)</p>
-                            <a href="https://github.com/Laths1/Monopoly_AI" class="github-link">
-                                <div class="btn">View on GitHub</div> 
-                            </a>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </section>
@@ -512,4 +512,5 @@
 </body>
 
 </html>
+
 
