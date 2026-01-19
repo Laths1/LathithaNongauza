@@ -34,18 +34,18 @@ variables
 
 /* ===== Scrollbar for WebKit browsers (Chrome, Edge, Safari) ===== */
 ::-webkit-scrollbar {
-    width: 10px;              /* scrollbar width */
-    height: 10px;             /* horizontal scrollbar height */
+    width: 1rem;              /* scrollbar width */
+    height: 1rem;             /* horizontal scrollbar height */
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary-color-6);      /* track color */
+    background: var(--primary-color-1);      /* track color */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color-1); /* thumb color */
-    border-radius: 10px;
-    border: 2px solid #f1f1f1; /* space around thumb */
+    background-color: var(--primary-color-6); /* thumb color */
+    /* border-radius: 10px; */
+    border: 1rem solid var(--primary-color-1); /* space around thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -54,8 +54,8 @@ variables
 
 /* ===== Firefox ===== */
 * {
-    scrollbar-width: thin;                /* auto | thin | none */
-    scrollbar-color: var(--primary-color-1) #f1f1f1;      /* thumb track */
+    /* scrollbar-width: ;                auto | thin | none */
+    scrollbar-color: var(--primary-color-6) var(--primary-color-1);      /* thumb track */
 }
 /* ==========
 global styles
@@ -434,7 +434,7 @@ nav
 ========== */
 .nav-container{
     /* background: var(--primary-color-3); */
-    padding: 2rem 8rem;
+    padding: 3rem 8rem;
 
     /* border: 2px solid #030201; */
     width: 100vw;
@@ -1123,8 +1123,6 @@ gallery
   }
 @media screen and (max-width:576px){
     /* Full width container */
-    .gallery-container, 
-    .gallery-slideshow,
     .carousel,
     [data-slides],
     .slide,
@@ -1135,12 +1133,14 @@ gallery
         padding: 0 !important;
         overflow-x: hidden !important;
     }
-    
+    .gallery-slideshow{
+        overflow-x: hidden !important;
+    }
     /* PDF display area */
     .pdf-canvas {
         width: 100vw !important;
-        /* height: 45vh !important; */
-        min-height: 300px !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
         padding: 10px !important;
         margin: 0 !important;
         overflow: auto !important;
@@ -1155,6 +1155,7 @@ gallery
     .pdf-canvas canvas {
         max-width: none !important; /* Allow full size for zoom */
         image-rendering: optimizeQuality !important;
+        height: auto;
     }
     
     /* Zoom controls */
