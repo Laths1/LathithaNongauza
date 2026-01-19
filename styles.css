@@ -8,8 +8,8 @@ fonts
 variables
 ===============*/
 :root{
-    --primary-color-1:#BF1A1A;
-    /* --primary-color-1:green; */
+    /* --primary-color-1:#BF1A1A; */
+    --primary-color-1:green;
     --primary-color-2:#0F0E0E;
     --primary-color-3:CBD99B;
     --primary-color-4:#010202;
@@ -1699,3 +1699,4 @@ footer
 }
     
 }
+
