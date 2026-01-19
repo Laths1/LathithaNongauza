@@ -8,8 +8,8 @@ fonts
 variables
 ===============*/
 :root{
-    --primary-color-1:#BF1A1A;
-    /* --primary-color-1:green; */
+    /* --primary-color-1:#BF1A1A; */
+    --primary-color-1:green;
     --primary-color-2:#0F0E0E;
     --primary-color-3:CBD99B;
     --primary-color-4:#010202;
@@ -30,6 +30,32 @@ variables
     --ff-primary-1:'roboto', sans-serif;
     --ff-primary-2:'Poppins', sans-serif;
     --ff-main-title:'DM Serif Display', serif;
+}
+
+/* ===== Scrollbar for WebKit browsers (Chrome, Edge, Safari) ===== */
+::-webkit-scrollbar {
+    width: 10px;              /* scrollbar width */
+    height: 10px;             /* horizontal scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color-6);      /* track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-1); /* thumb color */
+    border-radius: 10px;
+    border: 2px solid #f1f1f1; /* space around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color-6); /* hover color */
+}
+
+/* ===== Firefox ===== */
+* {
+    scrollbar-width: thin;                /* auto | thin | none */
+    scrollbar-color: var(--primary-color-1) #f1f1f1;      /* thumb track */
 }
 /* ==========
 global styles
@@ -1699,3 +1725,5 @@ footer
 }
     
 }
+
+
