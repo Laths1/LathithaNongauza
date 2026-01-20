@@ -1123,6 +1123,8 @@ gallery
   }
 @media screen and (max-width:576px){
     /* Full width container */
+    .gallery-container,
+    .gallery-slideshow,
     .carousel,
     [data-slides],
     .slide,
@@ -1133,14 +1135,12 @@ gallery
         padding: 0 !important;
         overflow-x: hidden !important;
     }
-    .gallery-slideshow{
-        overflow-x: hidden !important;
-    }
+
     /* PDF display area */
     .pdf-canvas {
         width: 100vw !important;
-        height: 100vh !important;
-        min-height: 100vh !important;
+        /* height: 100vh !important; */
+        min-height: 45vh !important;
         padding: 10px !important;
         margin: 0 !important;
         overflow: auto !important;
