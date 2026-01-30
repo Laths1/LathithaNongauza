@@ -10,6 +10,7 @@ variables
 :root{
     /* --primary-color-1:#BF1A1A; */
     --primary-color-1:green;
+    /* --primary-color-1:	#008000; */
     --primary-color-2:#0F0E0E;
     --primary-color-3:CBD99B;
     --primary-color-4:#010202;
@@ -452,7 +453,7 @@ nav
     background: var(--primary-color-3);
 }
 .logo img{
-    border-radius: 50%;
+    border-radius: 40%;
     max-width: 9rem;
     max-height: 9rem;
     padding: 2rem 0;
