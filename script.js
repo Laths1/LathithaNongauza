@@ -172,6 +172,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadPDF('pdf-canvas-6', './Effects_of_pre&nonepretrained_tokens.pdf');
     loadPDF('pdf-canvas-7', './Dimensionality reduction analysis of NBA player statistics.pdf');
     loadPDF('pdf-canvas-8', './AI_in_monopoly.pdf');
+    loadPDF('pdf-canvas-9', './RealEstateAnalysis.pdf');
     // Add more PDFs as needed
 });
 
