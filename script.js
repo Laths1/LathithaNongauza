@@ -173,6 +173,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadPDF('pdf-canvas-7', './Dimensionality reduction analysis of NBA player statistics.pdf');
     loadPDF('pdf-canvas-8', './AI_in_monopoly.pdf');
     loadPDF('pdf-canvas-9', './RealEstateAnalysis.pdf');
+    loadPDF('pdf-canvas-10', './credit_card_fraud_detection.pdf');
     // Add more PDFs as needed
 });
 
