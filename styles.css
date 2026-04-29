@@ -9,8 +9,8 @@ variables
 ===============*/
 :root{
     /* --primary-color-1:#BF1A1A; */
-    --primary-color-1:green;
-    /* --primary-color-1:	#008000; */
+    /* --primary-color-1:green; */
+    --primary-color-1:	#008000;
     --primary-color-2:#0F0E0E;
     --primary-color-3:CBD99B;
     --primary-color-4:#010202;
@@ -1136,12 +1136,60 @@ gallery
         padding: 0 !important;
         overflow-x: hidden !important;
     }
-
+    
+    .gallery-container{
+        max-height: fit-content;
+        height: auto !important;
+        padding: 1rem 0 !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+    
+    /* Fix for carousel slides displaying in a row */
+    .carousel > ul {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .slide {
+        position: absolute !important;
+        inset: 0 !important;
+        opacity: 0 !important;
+        transition: 200ms opacity ease-in-out !important;
+        transition-delay: 200ms !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    .slide[data-active] {
+        opacity: 1 !important;
+        z-index: 1 !important;
+        transition-delay: 0ms !important;
+        position: relative !important;
+    }
+    
+    /* Fix for carousel container height */
+    .carousel {
+        height: auto !important;
+        min-height: 500px !important;
+        position: relative !important;
+    }
+    
+    /* Make PDF viewer stack properly */
+    .pdf-viewer-container {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        max-height: 70vh !important;
+    }
+    
     /* PDF display area */
     .pdf-canvas {
-        width: 100vw !important;
-        /* height: 100vh !important; */
+        width: 100% !important;
         min-height: 45vh !important;
+        max-height: 60vh !important;
         padding: 10px !important;
         margin: 0 !important;
         overflow: auto !important;
@@ -1152,11 +1200,22 @@ gallery
         justify-content: center !important;
     }
     
-    /* Canvas styling - ALLOW ZOOM */
+    /* Canvas styling */
     .pdf-canvas canvas {
-        max-width: none !important; /* Allow full size for zoom */
+        max-width: 100% !important;
+        height: auto !important;
         image-rendering: optimizeQuality !important;
-        height: auto;
+    }
+    
+    /* Ensure slide content fits */
+    .slide > div:first-child {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .slide-caption {
+        padding: 10px 20px !important;
+        margin-top: 10px !important;
     }
     
     /* Zoom controls */
@@ -1169,9 +1228,15 @@ gallery
         color: var(--primary-color-2) !important;
     }
     
+    .pdf-toolbar {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    
     .pdf-toolbar button {
         user-select: none !important;
         -webkit-user-select: none !important;
+        padding: 6px 8px !important;
     }
 }
   
@@ -1728,4 +1793,41 @@ footer
     
 }
 
+/* Container to maintain aspect ratio and centering */
+.video-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+    
+}
 
+/* Make the video fill the container */
+.custom-video {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-height:800px;
+}
+
+/* Customizing the control bar appearance (Webkit browsers) */
+.custom-video::-webkit-media-controls-panel {
+    background-image: linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+
+.custom-video::-webkit-media-controls-play-button {
+    background-color: #ff4757;
+    border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .video-container {
+        margin: 10px;
+        border-radius: 0; /* Full width on mobile */
+    }
+}

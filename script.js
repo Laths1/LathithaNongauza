@@ -174,6 +174,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadPDF('pdf-canvas-8', './AI_in_monopoly.pdf');
     loadPDF('pdf-canvas-9', './RealEstateAnalysis.pdf');
     loadPDF('pdf-canvas-10', './credit_card_fraud_detection.pdf');
+    loadPDF('pdf-canvas-11', './background_blur.pdf');
     // Add more PDFs as needed
 });
 
