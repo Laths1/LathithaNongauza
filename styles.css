@@ -1122,8 +1122,8 @@ gallery
   .carousel-button.next {
     right: 1rem;
   }
-@media screen and (max-width:576px){
-    /* Full width container */
+  
+@media screen and (max-width: 576px) {
     .gallery-container,
     .gallery-slideshow,
     .carousel,
@@ -1137,7 +1137,7 @@ gallery
         overflow-x: hidden !important;
     }
     
-    .gallery-container{
+    .gallery-container {
         max-height: fit-content;
         height: auto !important;
         padding: 1rem 0 !important;
@@ -1145,7 +1145,6 @@ gallery
         position: relative !important;
     }
     
-    /* Fix for carousel slides displaying in a row */
     .carousel > ul {
         position: relative !important;
         width: 100% !important;
@@ -1170,14 +1169,12 @@ gallery
         position: relative !important;
     }
     
-    /* Fix for carousel container height */
     .carousel {
         height: auto !important;
         min-height: 500px !important;
         position: relative !important;
     }
     
-    /* Make PDF viewer stack properly */
     .pdf-viewer-container {
         position: relative !important;
         display: flex !important;
@@ -1185,7 +1182,6 @@ gallery
         max-height: 70vh !important;
     }
     
-    /* PDF display area */
     .pdf-canvas {
         width: 100% !important;
         min-height: 45vh !important;
@@ -1200,14 +1196,17 @@ gallery
         justify-content: center !important;
     }
     
-    /* Canvas styling */
+    /* FIX: Enable zoom by removing transform restriction and allowing scaling */
     .pdf-canvas canvas {
-        max-width: 100% !important;
+        /* Remove the previous transform: none !important */
+        transform: unset !important;
+        max-width: none !important;
         height: auto !important;
         image-rendering: optimizeQuality !important;
+        /* Ensure canvas respects zoom scaling */
+        display: block !important;
     }
     
-    /* Ensure slide content fits */
     .slide > div:first-child {
         width: 100% !important;
         max-width: 100% !important;
@@ -1218,7 +1217,6 @@ gallery
         margin-top: 10px !important;
     }
     
-    /* Zoom controls */
     .zoom-in, .zoom-out {
         touch-action: manipulation !important;
     }
